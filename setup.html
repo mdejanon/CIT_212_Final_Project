@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/syles.css">
+    <link rel="stylesheet" href="./css/flipcards.css">
+    <title>Final Project | SETUP | CIT 212</title>
+    <style>
+        .articles {
+          width: 80%;
+          height: auto;
+          background-color: #ffffff;
+        }
+
+        aside {
+          width: 20%;
+          height: auto;
+          padding-top: 2%;
+          background-color: #333333;
+          color: #FFFFFF;
+        }
+
+        .asideButton {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          height: 40px;
+          background-color: #333333;
+          border-bottom: 2px solid #ce1e54;
+          text-align: center;
+          line-height: 40px;     
+        }
+
+        .asideButton a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+
+        aside h3 {
+          text-align: center;
+          font-family: Roboto-Black;
+        }
+
+        aside a {
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+
+        aside a:hover {
+          color: #333333;
+        }
+
+        aside .asideButton:hover {
+          background-color: #f7f8fa;
+          border-bottom: 2px solid #53ce63;
+        }
+
+        @media screen and (max-width: 1028px) {
+          .flipCards {
+            justify-content: center;
+            margin-left: 0%;
+          }
+        }
+        @media screen and (max-width: 800px) {
+          .content {
+            flex-wrap: nowrap;
+            flex-direction: column;
+          }
+            
+          article {
+            order: 1;
+             width: 100%;
+          }
+
+          aside {
+            order: 2;
+            width: 100%;
+            z-index: 99;
+          }
+        }      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Raspberry Pi Project</h1>
+            <h2>Pi-Hole + VPN</h2>
+        </header>
+        <nav>
+            <ul>
+                <li><div class="navButton"><a href="./index.html">Home</a></div></li>
+                <li><div class="navButton"><a href="./parts.html">Parts</a></div></li>
+                <li><div class="navButton"><a href="./setup.html">Setup</a></div></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="articles">
+       
+            </div>
+            <aside>
+                <h3>Useful Links:</h3><br>
+                <div class="asideButton" style="border-top: 2px solid #ce1e54;">
+                    <a href="https://www.raspberrypi.com/software/" target="_blank"><b>OS IMAGER</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.raspberrypi.com/documentation/computers/os.html" target="_blank"><b>OS DOCUMENTATION</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://pi-hole.net/" target="_blank"><b>PI-HOLE</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.pivpn.io/" target="_blank"><b>PIVPN</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.wireguard.com/" target="_blank"><b>WIREGUARD</b></a>
+                </div>
+            </aside>
+        </div>    
+        <footer>
+            <p>Created by <a href="https://github.com/mdejanon" target="_blank">Max De Janon</a></p>
+        </footer>
+    </div>
+</body>
+</html>

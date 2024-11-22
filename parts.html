@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/syles.css">
+    <link rel="stylesheet" href="./css/flipcards.css">
+    <title>Final Project | PARTS | CIT 212</title>
+    <style>
+        article {
+          width: 80%;
+          height: auto;
+          background-color: #e6e6e6;
+        }
+
+        .flipCards {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 98%;
+          height: auto;
+          margin-left: 2%;
+        }
+
+        .flip-card-front img {
+          width: 400px;
+          height: 267px;
+          border-radius: 20px;
+        }
+
+        .flip-card-back h3 {
+          font-family: Quicksand-Bold;
+        }
+
+        aside {
+          width: 20%;
+          height: auto;
+          padding-top: 2%;
+          background-color: #333333;
+          color: #FFFFFF;
+        }
+        
+        aside h3 {
+          text-align: center;
+          font-family: Roboto-Black;
+        }
+
+        .asideButton {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          height: 40px;
+          background-color: #333333;
+          border-bottom: 2px solid #ce1e54;
+          text-align: center;
+          line-height: 40px;
+            
+        }
+
+        .asideButton a {
+          display: inline-block;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+
+        aside a {
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+
+        aside a:hover {
+          color: #333333;
+        }
+
+        aside .asideButton:hover {
+          background-color: #f7f8fa;
+          border-bottom: 2px solid #53ce63;
+        }
+
+        @media screen and (max-width: 2112px) {
+          .flipCards {
+            justify-content: center;
+            margin-left: 0%;
+          }
+        }
+        @media screen and (max-width: 800px) {
+          .content {
+            flex-wrap: nowrap;
+            flex-direction: column;
+          }
+            
+          article {
+            order: 1;
+             width: 100%;
+          }
+
+          aside {
+            order: 2;
+            width: 100%;
+            z-index: 99;
+          }
+        }      
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Raspberry Pi Project</h1>
+            <h2>Pi-Hole + VPN</h2>
+        </header>
+        <nav>
+            <ul>
+                <li><div class="navButton"><a href="./index.html">Home</a></div></li>
+                <li><div class="navButton"><a href="./parts.html">Parts</a></div></li>
+                <li><div class="navButton"><a href="./setup.html">Setup</a></div></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <article>
+                <h2>Parts and Components for this Project:</h2><br>
+                <p>Below are the parts and components you will need to complete this project. You can purchase these items 
+                  individually or as a kit from various online retailers. The Raspberry Pi 5 is the main component of this 
+                  project, and the other parts are optional but recommended for optimal performance and functionality. Hover 
+                  over the cards for information on each individual component.</p><br><br>
+                <div class="flipCards">
+                    <!-- FLIP CARDS -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img src="./images/raspberry-pi-5.webp" alt="Raspberry Pi 5">
+                          </div>
+                          <div class="flip-card-back">
+                            <h3 style="margin-top: 40px;">Raspberry Pi 5</h3>
+                            <p><b>The everything computer. Optimised.</b></p><br>
+                            <p>With 2–3× the speed of the previous generation, and featuring silicon designed in‑house for the best possible 
+                              performance, we’ve redefined the Raspberry Pi experience.</p>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END OF CARD 1 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img src="./images/pi_case.webp" alt="Pi Case">
+                          </div>
+                          <div class="flip-card-back">
+                            <h3 style="margin-top: 50px;">Raspberry Pi 5 Case</h3><br>
+                            <p>The Raspberry Pi Case for Raspberry Pi 5 is a clip-together four-part enclosure with an active cooling fan. 
+                              It keeps your Raspberry Pi 5 at a comfortable operating temperature even under heavy load.</p>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END OF CARD 2 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img src="./images/pi_psu.webp" alt="Pi PSU">
+                          </div>
+                          <div class="flip-card-back">
+                            <h3>Raspberry Pi PSU</h3><br>
+                            <p>The Raspberry Pi 27W USB-C Power Supply is an ideal power supply for Raspberry Pi 5, especially for users who 
+                              wish to drive high-power peripherals such as hard drives and SSDs from Raspberry Pi 5's four Type A USB 
+                              ports. Additional built-in power profiles mean the Raspberry Pi 27W USB-C Power Supply is also an excellent 
+                              option for powering third-party PD-compatible products. The available profiles are 9V, 3A; 12V, 2.25A; and 
+                              15V, 1.8A, all limited to a maximum of 27W.</p>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END OF CARD 3 -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                          <div class="flip-card-front">
+                            <img src="./images/sd-cards.png" alt="MicroSD Card">
+                          </div>
+                          <div class="flip-card-back">
+                            <h3 style="margin-top: 30px;">MicroSD Card</h3><br>
+                            <p>You need a microSD card for the Raspberry Pi because it serves as the primary storage for the operating 
+                              system and all your files. The Raspberry Pi doesn't have built-in storage, so the microSD card acts as 
+                              the hard drive, allowing you to boot the device and run applications</p>
+                          </div>
+                        </div>
+                    </div>
+                    <!-- END OF CARD 4 -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./images/pi_active_cooler.webp" alt="Optional Pi Active Cooler">
+                        </div>
+                        <div class="flip-card-back">
+                          <h3 style="margin-top: 30px;">Raspberry Pi Active Cooler</h3>
+                          <p style="font-family: Roboto-Black;">(Optional)</p><br>
+                          <p>The Raspberry Pi Active Cooler for Raspberry Pi 5 is a dedicated clip-on cooling solution for 
+                            Raspberry Pi 5. It combines an aluminium heatsink with a temperature-controlled blower fan to 
+                            keep your Raspberry Pi 5 at a comfortable operating temperature, even under heavy loads.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END OF CARD 5 -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./images/sc_card_reader.png" alt="Optional SD Card Reader">
+                        </div>
+                        <div class="flip-card-back">
+                          <h3 style="margin-top: 40px;">SD Card Reader</h3>
+                          <p style="font-family: Roboto-Black;">(Optional)</p><br>
+                          <p>If your computer does not have an SD card reader built in, you will need an USB SD card reader to
+                            write the Raspberry Pi OS OS image to the microSD card directly from your computer.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END OF CARD 6 -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./images/router.png" alt="Optional Router">
+                        </div>
+                        <div class="flip-card-back">
+                          <h3 style="margin-top: 25px;">Wifi Router</h3>
+                          <p style="font-family: Roboto-Black;">(Optional)</p><br>
+                          <p>Configuring your router is essential for using a Raspberry Pi with Pi-hole and WireGuard VPN. 
+                            With some ISPs restricting access to their equipemnt configuration, you will lack the necesary 
+                            configurations of assigns a static IP address for consistent performance and set port forwarding rules.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- END OF CARD 7 -->
+                    <div class="flip-card">
+                      <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                          <img src="./images/eth_cable.png" alt="Optional Ethernet Cable">
+                        </div>
+                        <div class="flip-card-back">
+                          <h3 style="margin-top: 20px;">Ethernet Cable</h3>
+                          <p style="font-family: Roboto-Black;">(Optional)</p><br>
+                          <p>Using an Ethernet cable with your Raspberry Pi provides a more stable and reliable connection compared 
+                            to Wi-Fi, offers faster data transfer speeds, enhances security by being less vulnerable to hacking, 
+                            and is useful for direct access and remote management of your device. This can be particularly beneficial 
+                            for network-intensive tasks.</p>
+                        </div>
+                      </div>
+                    </div> 
+                    <!-- END OF CARD 8 -->
+                </div>
+                <br><br><br><br>
+            </article>
+            <aside>
+                <h3>Parts Information:</h3><br>
+                <div class="asideButton" style="border-top: 2px solid #ce1e54;">
+                    <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html" target="_blank"><b>RASPBERRY PI</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.raspberrypi.com/products/raspberry-pi-5-case/" target="_blank"><b>CASE</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.raspberrypi.com/products/27w-power-supply/" target="_blank"><b>PSU</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.raspberrypi.com/documentation/accessories/sd-cards.html" target="_blank"><b>MICRO SD CARD</b></a>
+                </div>
+                <div class="asideButton">
+                    <a href="https://www.raspberrypi.com/products/active-cooler/" target="_blank"><b>COOLER</b></a>
+                </div>
+                <div class="asideButton">
+                  <a href="https://www.canakit.com/raspberry-pi-5" target="_blank"><b>RPI 5 KITS & PARTS</b></a>
+              </div>
+            </aside>
+        </div>    
+        <footer>
+            <p>Created by <a href="https://github.com/mdejanon" target="_blank">Max De Janon</a></p>
+        </footer>
+    </div>
+</body>
+</html>

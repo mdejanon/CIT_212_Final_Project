@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/syles.css">
+    <link rel="stylesheet" href="./css/flipcards.css">
+    <title>Final Project | HOME | CIT 212</title>
+    <style>
+        article {
+            width: 100%;
+            height: auto;
+            background-color: #e6e6e6;
+        }
+        
+        article ul  {
+            margin-left: 6%;
+            margin-right: 3%;
+        }
+
+        .specsContainer {
+            display: flex; 
+            flex-wrap: nowrap; 
+            justify-content: center;
+            background: rgb(73,173,75);
+            background: linear-gradient(90deg, rgba(73,173,75,1) 0%, rgba(4,146,172,1) 66%, rgba(77,78,154,1) 100%);
+            width: 96%; 
+            height: 420px;
+            padding: 2%
+        }
+        .specsContainer .specs {
+            flex: 0 1 500px; 
+            height: auto; 
+            margin-left: 1%;
+            margin-top: auto; 
+            margin-bottom: auto; 
+            color: #FFFFFF;
+        }
+        .specsContainer figure {
+            flex: 0 0 500px; 
+            height: 409px;
+            margin-top: auto; 
+            margin-bottom: auto;
+        }
+        .specsContainer figure img {
+            width: 100%; 
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .conectionsContainer {
+            background: #ffffff;
+            width: 94%; 
+            height: auto;
+            padding: 3%
+        }
+
+        .conectionsContainer h2 {
+            margin-top: 0%;
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+        
+        .conectionsContainer p {
+            margin-left: 0%;
+            margin-right: 0%;
+        }
+
+        .conectionsContainer .conections-flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            height: auto;
+        }
+
+        .conectionsContainer .conections-flex-container .conection {
+            flex: 0 0 280px; 
+            height: 260px;
+            padding: 10px;
+            margin: 10px;
+            background: rgb(3,115,140);
+            background: linear-gradient(90deg, rgba(3,115,140,1) 0%, rgba(4,173,191,1) 100%);
+            border: 1px solid #ce1e54;
+            border-radius: 20px;
+            color: #FFFFFF;
+        }
+
+        .conectionsContainer .conections-flex-container .conection h3 {
+            font-family: Quicksand-Bold; 
+            text-align: center;
+        }
+
+        .conectionsContainer .conections-flex-container .conection p {
+            text-align: center;
+        }
+
+        @media screen and (max-width: 800px) {
+            .specsContainer {
+                flex-direction: column;
+                height: 830px
+            }
+            .specsContainer .specs {
+                flex: 0 1 350px;
+                width: auto;
+                margin-top: 10px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 5px;
+            }
+            .specsContainer figure {
+                flex: 0 1 409px;
+                width: auto;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5px;
+            }
+            .specsContainer figure img {
+                margin-top: 5px;
+            }
+        } 
+    </style>     
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Raspberry Pi Project</h1>
+            <h2>Pi-Hole + VPN</h2>
+        </header>
+        <nav>
+            <ul>
+                <li><div class="navButton"><a href="./index.html">Home</a></div></li>
+                <li><div class="navButton"><a href="./parts.html">Parts</a></div></li>
+                <li><div class="navButton"><a href="./setup.html">Setup</a></div></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <article>
+                <h2>What is a <a href="https://www.raspberrypi.com/" target="_blank">Raspberry Pi</a> ?</h2><br>
+                <p>The <b>Raspberry Pi</b> is a small, affordable, single-board computer developed by the Raspberry Pi Foundation in the 
+                    UK. It was initially created to promote computer science education and make computing accessible to more people.</p><br>
+                <p>Here are some key points about the Raspberry Pi:</p><br>  
+                <ul>
+                    <li><b>Size and Cost: </b>It's about the size of a credit card and costs around $35 to $75, depending on the mode.</li><br>
+                    <li><b>Components: </b>It includes a processor, memory, USB ports, HDMI output, and a microSD card slot for storage.</li><br>
+                    <li><b>Operating System: </b>It typically runs Linux-based operating systems, with Raspberry Pi OS being the most common.</li><br>
+                    <li><b>Uses: </b>It's incredibly versatile and can be used for learning programming, building DIY electronics projects, home automation, retro gaming, and even as a basic desktop computer.</li><br>
+                </ul>
+                <p>The Raspberry Pi has become popular among hobbyists, educators, and professionals for its flexibility and low cost. 
+                    These are probably some of the reasons why it was chosen for this project for my CIT 176 - Computer Architecture and 
+                    I beilive this was a great choice and I had a lot of fun working on this project.</p><br>
+                <p>I picked up the Raspeberry Pi 5 - 8GB version for this project.  It is more than I needed but I wanted to have a Pi 
+                    that I could use for other project in the future.  I've always wanted a Pi and this class gave me the opportunity to 
+                    get one and learn how to use it.</p><br><br><br>
+                </Pic></p>
+                <div class="specsContainer">
+                    <div class="specs">
+                        <h2 style="font-family: Quicksand-Bold;">Raspberry Pi 5 Specs</h2><br>  
+                        <ul>
+                            <li><b>Processor: </b>2.4GHz quad-core 64-bit Arm Cortex-A76 CPU.</li>
+                            <li><b>GPU: </b>VideoCore VII, supporting OpenGL ES 3.1 and Vulkan 1.2.</li>
+                            <li><b>RAM: </b>Dual 4Kp60 HDMI display output with HDR support.</li>
+                            <li><b>Display: </b>Dual 4Kp60 HDMI display output with HDR support.</li>
+                            <li><b>Connectivity: </b>Dual-band 802.11ac Wi-Fi, Bluetooth 5.0/BLE, Gigabit Ethernet with PoE+ support.</li>
+                            <li><b>Ports: </b>2 × USB 3.0, 2 × USB 2.0, PCIe 2.0 x1 interface.</li>
+                            <li><b>Storage: </b>microSD card slot with support for high-speed SDR104 mode.</li>
+                            <li><b>Power: </b>5V/5A DC via USB-C, with Power Delivery support.</li>
+                            <li><b>Additional Features: </b>Real-time clock (RTC), power button, and support for active cooling.</li>
+                        </ul>
+                    </div>
+                        <figure>
+                        <img src="./images/raspberry-pi-5.webp" alt="The Raspberry Pi 5">
+                    </figure>
+                </div>
+                <h2>Pi-Hole + VPN Project Business Case:</h2><br>
+                <p>Our personal data has become so valuable that our clicks are monitored, and our online activity is sold.  
+                    <a href="https://www.fortinet.com/resources/cyberglossary/cia-triad" target="_blank">The CIA Triad</a>: 
+                    Confidentiality, Integrity and Availability, are fundamental ideas that we should all think about implementing 
+                    into our online activity.  We should strive to keep our information confidential, protect and preserve the integrity 
+                    of both our network connections and our data, and we must work into keeping our services available. 
+                    With Pi-Hole Ad Blocker and WireGuard VPN we can start taking back control of some of these systems.</p><br><br><br>
+                <div class="conectionsContainer">
+                    <h2>Projects Computer Architecture Connections:</h2><br>
+                    <p>The Raspberry Pi is the center piece of my project.  Using Pi-Hole Ad Blocker and WineGuard VPN it serves the purpose 
+                        to increase to enhance my network security and privacy.  These are some key components and their contributions 
+                        to this project:</p><br><br>
+                    <div class="conections-flex-container">
+                        <div class="conection">
+                            <h3 style="margin-top: 50px;">Raspberry Pi 5 Hardware</h3><br>
+                            <p>The Raspberry Pi serves as the physical platform for running both Pi-Hole and Wireguard. Its compact 
+                            size, low power consumption, and sufficient processing power make it ideal for home network applications.</p>
+                        </div>
+                        <div class="conection">
+                            <h3 style="margin-top: 50px;">Raspberry Pi OS</h3><br>
+                            <p>This OS is Linux-based OS based on Debian. It provides a stable and flexible environment for running both 
+                                Pi-Hole and Wireguard, and it supports the necessary networking and security features required for these 
+                                applications.</p>
+                        </div>
+                        <div class="conection">
+                            <h3 style="margin-top: 45px;">Pi Hole Software</h3><br>
+                            <p>Pi Hole acts as a DNS sinkhole, blocking ads and tracking domains at the network level. It uses lists 
+                                of known ad-serving domains to filter out unwanted content before it reaches my devices. This can benefit 
+                                my bandwidth and privacy in most cases.</p>
+                        </div>
+                        <div class="conection">
+                            <h3 style="margin-top: 50px;">WineGuard VPN Protocol</h3><br>
+                            <p>Wireguard provides a secure VPN tunnel, encrypting all traffic between my devices and the Pi-Hole server. 
+                                This ensures that my DNS queries and other internet traffic are protected from eavesdropping and tampering, 
+                                even on public networks.</p>
+                        </div>
+                        <div class="conection">
+                            <h3 style="margin-top: 15px;">Network Interface Configuration</h3><br>
+                            <p>Proper configuration of the network interfaces is crucial. This includes setting up static IP addresses, 
+                                configuring DNS settings, and ensuring that the VPN and DNS services are correctly routed. This setup 
+                                ensures seamless integration of Pi-Hole and Wireguard, providing a unified solution for ad-blocking and 
+                                secure browsing.</p>
+                        </div>
+                        <div class="conection">
+                            <h3 style="margin-top: 15px;">Client-server architecture</h3><br>
+                            <p>This is a network design model where multiple clients (devices or programs) request and receive services 
+                                from a centralized server. This architecture is fundamental in modern computing, enabling efficient 
+                                resource sharing and communication across networks.  This is how my devices, like my phone, tablet and 
+                                laptop connect to my Raspberry Pi and I have access to my services and my LAN.</p>
+                        </div>
+                    </div>    
+                </div>
+            </article>
+        </div>    
+        <footer>
+            <p>Created by <a href="https://github.com/mdejanon" target="_blank">Max De Janon</a></p>
+        </footer>
+    </div>
+</body>
+</html>
