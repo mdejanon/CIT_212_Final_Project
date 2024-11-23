@@ -8,9 +8,21 @@
     <title>Final Project | PARTS | CIT 212</title>
     <style>
         article {
+          display: flex;
+          flex-direction: column;
           width: 80%;
           height: auto;
           background-color: #e6e6e6;
+        }
+
+        .parts {
+          width: 100%;
+          height: auto;
+        }
+
+        article .parts ul  {
+            margin-left: 6%;
+            margin-right: 3%;
         }
 
         .flipCards {
@@ -93,7 +105,7 @@
             
           article {
             order: 1;
-             width: 100%;
+            width: 100%;
           }
 
           aside {
@@ -119,10 +131,12 @@
         </nav>
         <div class="content">
             <article>
+              <div class="parts" style="margin-bottom: 3%;">
                 <h2>Parts and Components for this Project:</h2><br>
                 <p>Below are the parts and components you will need to complete this project. You can purchase these items 
                   individually or as a kit from various online retailers. The Raspberry Pi 5 is the main component of this 
-                  project, and the other parts are optional but recommended for optimal performance and functionality. Hover 
+                  project, and the other parts are optional but recommended for optimal performance and functionality. Another 
+                  crutial element if this project is having a Public Static IP Address or use a Dynamic-DNS Service. Hover 
                   over the cards for information on each individual component.</p><br><br>
                 <div class="flipCards">
                     <!-- FLIP CARDS -->
@@ -189,7 +203,7 @@
                           <img src="./images/pi_active_cooler.webp" alt="Optional Pi Active Cooler">
                         </div>
                         <div class="flip-card-back">
-                          <h3 style="margin-top: 30px;">Raspberry Pi Active Cooler</h3>
+                          <h3 style="margin-top: 27px;">Raspberry Pi Active Cooler</h3>
                           <p style="font-family: Roboto-Black;">(Optional)</p><br>
                           <p>The Raspberry Pi Active Cooler for Raspberry Pi 5 is a dedicated clip-on cooling solution for 
                             Raspberry Pi 5. It combines an aluminium heatsink with a temperature-controlled blower fan to 
@@ -218,7 +232,7 @@
                           <img src="./images/router.png" alt="Optional Router">
                         </div>
                         <div class="flip-card-back">
-                          <h3 style="margin-top: 25px;">Wifi Router</h3>
+                          <h3 style="margin-top: 17px;">Wifi Router</h3>
                           <p style="font-family: Roboto-Black;">(Optional)</p><br>
                           <p>Configuring your router is essential for using a Raspberry Pi with Pi-hole and WireGuard VPN. 
                             With some ISPs restricting access to their equipemnt configuration, you will lack the necesary 
@@ -233,7 +247,7 @@
                           <img src="./images/eth_cable.png" alt="Optional Ethernet Cable">
                         </div>
                         <div class="flip-card-back">
-                          <h3 style="margin-top: 20px;">Ethernet Cable</h3>
+                          <h3 style="margin-top: 17px;">Ethernet Cable</h3>
                           <p style="font-family: Roboto-Black;">(Optional)</p><br>
                           <p>Using an Ethernet cable with your Raspberry Pi provides a more stable and reliable connection compared 
                             to Wi-Fi, offers faster data transfer speeds, enhances security by being less vulnerable to hacking, 
@@ -243,13 +257,25 @@
                       </div>
                     </div> 
                     <!-- END OF CARD 8 -->
-                </div>
-                <br><br><br><br>
+                  </div>
+                </div>  
+              <div class="parts" style="background-color: #ffffff;">
+                <h2>Why do I need a Public Static IP or Dynamic-DNS for my VPN Server?</h2><br>
+                <p>Using a static IP or a Dynamic DNS (DDNS) service for your local WireGuard VPN server is important for a few reasons:</p><br>
+                <ul>
+                  <li><b>Consistent Access: </b>A static IP ensures that your VPN server's address doesn't change, making it easy to connect to it from anywhere. If your IP address changes frequently (as it does with most residential internet connections), you would need to constantly update the IP address in your VPN client settings.</li><br>
+                  <li><b>Dynamic DNS (DDNS) </b>If you don't have a static IP, a DDNS service can be a great alternative. DDNS automatically updates a domain name to point to your current IP address, even if it changes. This way, you can use a consistent domain name to connect to your VPN server, without worrying about IP changes.</li><br>
+                  <li><b>Ease of Use: </b>Both static IPs and DDNS make it simpler to configure and maintain your VPN setup. You won't need to manually update the IP address in your WireGuard configuration every time it changes.</li><br>
+                </ul><br><br>
+              </div>
             </article>
             <aside>
                 <h3>Parts Information:</h3><br>
                 <div class="asideButton" style="border-top: 2px solid #ce1e54;">
                     <a href="https://www.raspberrypi.com/documentation/computers/getting-started.html" target="_blank"><b>RASPBERRY PI</b></a>
+                </div>
+                <div class="asideButton">
+                  <a href="https://www.canakit.com/raspberry-pi-5" target="_blank"><b>RPI 5 KITS & PARTS</b></a>
                 </div>
                 <div class="asideButton">
                     <a href="https://www.raspberrypi.com/products/raspberry-pi-5-case/" target="_blank"><b>CASE</b></a>
@@ -264,8 +290,8 @@
                     <a href="https://www.raspberrypi.com/products/active-cooler/" target="_blank"><b>COOLER</b></a>
                 </div>
                 <div class="asideButton">
-                  <a href="https://www.canakit.com/raspberry-pi-5" target="_blank"><b>RPI 5 KITS & PARTS</b></a>
-              </div>
+                  <a href="https://www.cloudflare.com/learning/dns/glossary/dynamic-dns/" target="_blank"><b>CLOUDFLARE DDNS</b></a>
+                </div>
             </aside>
         </div>    
         <footer>
