@@ -7,10 +7,22 @@
     <link rel="stylesheet" href="./css/flipcards.css">
     <title>Final Project | SETUP | CIT 212</title>
     <style>
-        .articles {
+        article {
+          display: flex;
+          flex-direction: column;
           width: 80%;
           height: auto;
-          background-color: #ffffff;
+          background-color: #e6e6e6;
+        }
+
+        .steps {
+          width: 100%;
+          height: auto;
+        }
+
+        article .steps ol  {
+            margin-left: 6%;
+            margin-right: 3%;
         }
 
         aside {
@@ -59,12 +71,78 @@
           border-bottom: 2px solid #53ce63;
         }
 
-        @media screen and (max-width: 1028px) {
-          .flipCards {
-            justify-content: center;
-            margin-left: 0%;
-          }
+        .imagerInstructions {
+          display: flex;
+          flex-wrap: wrap;
+          width: 96%;
+          height: auto;
+          padding: 2%;
+          justify-content: center;
         }
+
+        .imagerInstructions .instructions {
+          flex: 0 1 297px;
+          height: 343px;
+          margin: 20px;
+          background-color: #c5caca;
+          border: 1px solid #333333;
+          border-radius: 20px;
+        }
+
+        .imagerInstructions .instructions img {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+        }
+
+        .upgradeInstructions {
+          display: flex;
+          flex-wrap: wrap;
+          width: 96%;
+          height: auto;
+          padding: 2%;
+          justify-content: center;
+        }
+
+        .upgradeInstructions .instructions {
+          flex: 0 1 462px;
+          height: 294px;
+          margin: 20px;
+          background-color: #c5caca;
+          border: 1px solid #333333;
+          border-radius: 20px;
+        }
+
+        .upgradeInstructions .instructions img {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+        }
+
+        .piholeInstructions {
+          display: flex;
+          flex-wrap: wrap;
+          width: 96%;
+          height: auto;
+          padding: 2%;
+          justify-content: center;
+        }
+
+        .piholeInstructions .instructions {
+          flex: 0 1 458px;
+          height: 280px;
+          margin: 20px;
+          background-color: #c5caca;
+          border: 1px solid #333333;
+          border-radius: 20px;
+        }
+
+        .piholeInstructions .instructions img {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+        }
+
         @media screen and (max-width: 800px) {
           .content {
             flex-wrap: nowrap;
@@ -98,9 +176,155 @@
             </ul>
         </nav>
         <div class="content">
-            <div class="articles">
-       
-            </div>
+            <article>
+              <div class="steps">
+                <h2>Raspberry Pi OS:</h2><br>
+                <p>First, you will need to download the Raspberry Pi OS from the official website. You can 
+                  download the imager utility from the <b>Useful Links</b> section. Once you have downloaded 
+                  the imager you can follow this instructions:</p><br>
+                 <ol>
+                  <li>Select the Rapsberry Pi device you will use, in my case is the Raspberry Pi 5.</li>
+                  <li>Select your Operating System, we are going to select Raspberry PI OS LITE (64-BIT)</li>
+                  <li>Select your storage.  Make sure you are making the right selection and click on NEXT.</li>
+                  <li>Click on <b>EDIT SETTINGS</b> on the Use OS Customisation window.</li>
+                  <li>In the General tab we write our user name and password, I set my username to rapsi. Here you can also add your Wifi credentials.</li>
+                  <li>In the Services tab we <b>Enable SSH</b> and use password authentication and click on SAVE.</li>
+                  <li>Click on YES in the Use OS Customisation window.</li>
+                  <li>Follow the promps to finalize the OS image download!</li>
+                </ol>
+                <div class="imagerInstructions">
+                  <div class="instructions" style="flex: 0 1 449px;">
+                    <img src="./images/setup/imager001.png" alt="Raspberry Pi Imager main screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/imager002.png" alt="OS Customisation - General Tab">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/imager003.png" alt="OS Customisation - Services Tab">
+                  </div>
+                </div>
+              </div>
+              <div class="steps" style="background-color: #ffffff;">
+                <h2>Initial Router Setup:</h2><br>
+                <p>We need to be able to go into our routers settings to be able to confgure our network the way we need to for 
+                  our Raspberry Pi to serve as our DNS server and our VPN Server.  Here are the steps we need to take:</p><br>
+                <ol>
+                  <li>Connect the Ethernet cable to our router and to our Raspberry Pi.</li>
+                  <li>Grab the microSD card and insert it into your Raspberry Pi and power it up.</li>
+                  <li>Log into your routers admin web page and find the Raspberry Pi device name. If you left the default hostname it should be raspberrypi.</li>
+                  <li>Reserve an IP Address for you Rasbperry Pi in the DHCP settings of your router.  This is a better setting than setting a static IP in your Rasbperry Pi settings.</li>
+                  <li>Powercycle the Raspberry Pi to make sure the settings take effect.</li>
+                </ol><br>
+                <p>We are going to come back to the router after we have set up Pi-Hole and WireGuard to do two things: set the port forwarding 
+                  rules and modify the DHCP settings of the router to use the IP Address of the Rasperry Pi as the primary DNS server.</p><br><br>
+              </div>
+              <div class="steps">
+                <h2>Connecting to and Upgrading the Raspberry Pi:</h2><br>
+                <p>There are a couple of ways that we can interface with your Raspberry Pi. You have the option to connect a 
+                  keyboard and a monitor to it or we can do it via SSH.  I will connect via SSH since that is my prefered method 
+                  to but you can do one or the other, or both.  Here are the steps we need to take:</p><br>
+                <ol>
+                  <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and type: <b>ssh yourUsername@yourRaspberry_IP</b> or <b>ssh yourUsername@raspberrypi.local</b> if you left the default hostname.</li>
+                  <li>Since this is the first time connecting to your Raspberry Pi, you will be asked to accept the connection. Type: Yes.</li>
+                  <li>Upgrade the Raspberry Pi with the command: <b>sudo apt update && sudo apt upgrade -y</b></li>
+                  <li>Wait for the upgrades to complete, this might take several minutes.  Depending on what was installed it is a good idea to reboot wih the command: <b>sudo reboot now</b>. </li>
+                </ol>
+                <div class="upgradeInstructions">
+                  <div class="instructions">
+                    <img src="./images/setup/upgrade001.png" alt="Loggin into the Raspberry Pi using SSH">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/upgrade002.png" alt="Upgrading the Raspberry Pi software">
+                  </div>
+                </div>
+              </div>
+              <div class="steps" style="background-color: #ffffff;">
+                <h2>Setting up Pi-Hole Ad-Blocker:</h2><br>
+                <p>There are a few methods to install Pi-Hole.  We are going to use the One-Step Automades Install recommended by 
+                  the good folks at Pi-Hole.net. If you are interested in learning about the other alternatives click 
+                  <a href="https://github.com/pi-hole/pi-hole/#one-step-automated-install" target="_blank">HERE</a>. These 
+                  are the steps we are going to follow:</p><br>
+                <ol>
+                  <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and SSH into your Raspberry Pi.</li>
+                  <li>Download Pi-Hole by typing: <b>curl -sSL https://install.pi-hole.net | bash</b></li>
+                  <li>Follow the prompts to install Pi-Hole.</li> 
+                  <li>Select the upstream DNS provider.  I selected Cloudflare.</li>
+                  <li>Select Yes on the Blocklists selection screen. This will load a block list add for you.  You can add more later if you wish.</li>
+                  <li>Selecte Yes to install the Admin Web Interface.</li>
+                  <li>Selecte Yes to install the Web Server.</li>
+                  <li>Enable Logging is up to you. I selected yes to have data to analyze later on. If you select to enable logging, you will be prompted to selet a privacy setting in the next screen.</li>
+                  <li>Once the installation is complete, you will be given a password to log into the Pi-Hole Admin Console.  Save this password.</li>
+                  <li>Open your browser and type: <b>http://yourRaspberryPi_IP/admin</b> or <b>http://raspberrypi.local/admin</b> if you left the default hostname.</li>
+                  <li>Log in with the password you were given and you will be taken to the Pi-Hole Admin Console.</li>
+                  <li>The last step is to log into the router and change the DHCP settings. We need to change the primary DNS server to the Raspberry Pi IP Address.</li>
+                </ol>
+                <div class="piholeInstructions">
+                  <div class="instructions">
+                    <img src="./images/setup/pihole001.png" alt="Pi Hole Automated Installer - Main Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole002.png" alt="Pi Hole Automated Installer - Static IP notice screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole003.png" alt="Pi Hole Automated Installer - DNS Provider selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole004.png" alt="Pi Hole Automated Installer - Blocklist selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole005.png" alt="Pi Hole Automated Installer - Admin Web Interface selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole006.png" alt="Pi Hole Automated Installer - Web Server setup selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole007.png" alt="Pi Hole Automated Installer - Enable Logging selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole008.png" alt="Pi Hole Automated Installer - Privacy Mode selection screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole009.png" alt="Pi Hole Automated Installer - Final screen with password information">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole010.png" alt="Terminal view after exiting the Pi Hole Automated Installer">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole011.png" alt="Log in screen for Pi-Hole Web Admin page">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/pihole012.png" alt="Pi-Hole Web Admin page">
+                  </div>
+                </div>
+                <p>It is that simple to install Pi-Hole.  From here you can always use the Admin Web Interface to make any 
+                  changes, add block lists, analyze your traffic, etc.</p><br>
+              </div> 
+              <div class="steps">
+                <h2>Setting up WireGuard VPN:</h2><br>
+                <p>There are a few options when it comes to VPN software. For the Raspberry Pi, two good options are OpenVPN and 
+                  WireGuard and during this installation you will have the option to pick one or the other. I will be installing 
+                  WireGuard and here is why: WireGuard is generally preferred over OpenVPN for its speed, simplicity, and modern 
+                  security features. It has a smaller codebase, making it easier to audit and maintain, and uses efficient 
+                  cryptographic algorithms for better performance. While OpenVPN is more mature and widely compatible, 
+                  WireGuard's streamlined setup and enhanced performance make it a strong choice for many users.</p><br>
+                <ol>
+                  <li>1</li>
+                  <li>1</li>
+                  <li>1</li>
+                  <li>1</li>
+                  <li>1</li>
+                  <li>1</li>
+                </ol>
+                <div class="upgradeInstructions">
+                  <div class="instructions">
+                    <img src="./images/setup/upgrade001.png" alt="Loggin into the Raspberry Pi using SSH">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/upgrade002.png" alt="Upgrading the Raspberry Pi software">
+                  </div>
+                </div>
+              </div>  
+            </article>
             <aside>
                 <h3>Useful Links:</h3><br>
                 <div class="asideButton" style="border-top: 2px solid #ce1e54;">
@@ -112,6 +336,9 @@
                 <div class="asideButton">
                     <a href="https://pi-hole.net/" target="_blank"><b>PI-HOLE</b></a>
                 </div>
+                <div class="asideButton">
+                  <a href="https://avoidthehack.com/best-pihole-blocklists" target="_blank"><b>PI-HOLE BLOCKLISTS</b></a>
+              </div>
                 <div class="asideButton">
                     <a href="https://www.pivpn.io/" target="_blank"><b>PIVPN</b></a>
                 </div>
