@@ -67,7 +67,7 @@ nav {
 .navButton {
     display: inline-block;
     position: relative;
-    left: 66%;
+    left: 49%;
     width: 80px;
     height: 40px;
     background-color: #f7f8fa;
@@ -107,7 +107,17 @@ nav ul li {
     max-height: auto;
 }
 
-article h2  {
+article ul  {
+    margin-left: 6%;
+    margin-right: 3%;
+}
+
+article ol  {
+    margin-left: 6%;
+    margin-right: 3%;
+}
+
+article h2 {
     margin-top: 3%;
     margin-left: 3%;
     margin-right: 3%;
@@ -134,6 +144,15 @@ article p a {
 }
 
 article p a:hover {
+    color: #53ce63;
+}
+
+article li a {
+    text-decoration: none;
+    color: #ce1e54;
+}
+
+article li a:hover {
     color: #53ce63;
 }
 
@@ -178,12 +197,34 @@ nav ul li .button:hover {
     header {
         height: 110px;
     }
+
+    header h1 {
+        margin-top: 25px;
+        margin-left: 10%;
+    }
+    
+    header h2 {
+        margin-left: 10%;
+    }
+
+    .navButton {
+        left: 36%;
+    }
+
     .content {
         flex-wrap: nowrap;
         flex-direction: column;
     }
 
-    .navButton {
-        left: 66px;
+    article ul  {
+        margin-left: 8%;
+        margin-right: 3%;
     }
+    
+    article ol  {
+        margin-left: 8%;
+        margin-right: 3%;
+    }
+
+    
 }
