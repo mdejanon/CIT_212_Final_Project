@@ -194,11 +194,13 @@
             <h2>Pi-Hole + VPN</h2>
         </header>
         <nav>
+          <div class="navBar">
             <ul>
                 <li><div class="navButton"><a href="./index.html">Home</a></div></li>
                 <li><div class="navButton"><a href="./parts.html">Parts</a></div></li>
                 <li><div class="navButton"><a href="./setup.html">Setup</a></div></li>
             </ul>
+        </div>
         </nav>
         <div class="content">
             <article>
@@ -402,7 +404,7 @@
                   <li>Type in <b>pivpn -a</b> and hit enter.  Enter the name for your client and hit enter.  Create client name for every device you are going to connect. We can see were the file is created, it should be in <b>/home/USERNAME/configs</b> and we are going to use this information in the next steps.</li>
                   <li>We are going to generate QR codes for our mobile clients first.  Type in Type in <b>pivpn -qr</b> and hit enter.  Type in the name of the client you want to generate the QR for and hit enter.</li>
                   <li>On your mobile device, look for the WireGuard app, hit Add or +, and Create from QR Code and follow the promts.</li>
-                  <li>For other devices, like adesktop or laptop, we need to copy the files from the Raspberry PI.  We can use SCP (Secure File Copy) from the command promt or terminal: <b>scp yourUsername@yourRaspberry_IP:/home/yourUsername/configs/FILENAME.conf where_ you_want_the_file_in_your_computer</b>. An example for windows could be <b>scp rapsi@raspberrypi.local:/home/rapsi/configs/Client1.conf C:\</b> to copy the file to your C:\ drive.</li>
+                  <li>For other devices, like adesktop or laptop, we need to copy the files from the Raspberry PI.  We can use SCP (Secure File Copy) from the command promt or terminal: <span style="text-wrap: wrap;"><b>scp yourUsername@yourRaspberry_IP:/home/yourUsername/configs/FILENAME.conf where_ you_want_the_file_in_your_computer</b></span>. An example for windows could be <b>scp rapsi@raspberrypi.local:/home/rapsi/configs/Client1.conf C:\</b> to copy the file to your C:\ drive.</li>
                   <li>On your computer, start the WireGuard app and click on import from file and find the file we copied from our Raspberry Pi.</li>
                   <li>You can activate and deactivate your VPN connection now and you are all set!</li>
                  </ol>
