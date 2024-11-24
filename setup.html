@@ -20,11 +20,6 @@
           height: auto;
         }
 
-        article .steps ol  {
-            margin-left: 6%;
-            margin-right: 3%;
-        }
-
         aside {
           width: 20%;
           height: auto;
@@ -143,6 +138,36 @@
           border-radius: 20px;
         }
 
+        .vpnInstructions {
+          display: flex;
+          flex-wrap: wrap;
+          width: 96%;
+          height: auto;
+          padding: 2%;
+          justify-content: center;
+        }
+
+        .vpnInstructions .instructions {
+          flex: 0 1 458px;
+          height: 280px;
+          margin: 20px;
+          background-color: #c5caca;
+          border: 1px solid #333333;
+          border-radius: 20px;
+        }
+
+        .vpnInstructions .instructions img {
+          width: 100%;
+          height: 100%;
+          border-radius: 20px;
+        }
+
+        @media screen and (max-width: 900px) {
+          aside {
+            font-size: 0.94em;
+          }
+        }
+
         @media screen and (max-width: 800px) {
           .content {
             flex-wrap: nowrap;
@@ -151,15 +176,15 @@
             
           article {
             order: 1;
-             width: 100%;
+            width: 100%;
           }
 
           aside {
             order: 2;
             width: 100%;
-            z-index: 99;
+            font-size: 1em;
           }
-        }      
+        }  
     </style>
 </head>
 <body>
@@ -180,8 +205,8 @@
               <div class="steps">
                 <h2>Raspberry Pi OS:</h2><br>
                 <p>First, you will need to download the Raspberry Pi OS from the official website. You can 
-                  download the imager utility from the <b>Useful Links</b> section. Once you have downloaded 
-                  the imager you can follow this instructions:</p><br>
+                  download the imager utility from the <b>Useful Links</b> section.</p><br>
+                <p>Once you have downloaded the imager you can follow these steps:</p><br>
                  <ol>
                   <li>Select the Rapsberry Pi device you will use, in my case is the Raspberry Pi 5.</li>
                   <li>Select your Operating System, we are going to select Raspberry PI OS LITE (64-BIT)</li>
@@ -207,7 +232,8 @@
               <div class="steps" style="background-color: #ffffff;">
                 <h2>Initial Router Setup:</h2><br>
                 <p>We need to be able to go into our routers settings to be able to confgure our network the way we need to for 
-                  our Raspberry Pi to serve as our DNS server and our VPN Server.  Here are the steps we need to take:</p><br>
+                  our Raspberry Pi to serve as our DNS server and our VPN Server.</p><br>
+                <p>These are the next steps:</p><br>
                 <ol>
                   <li>Connect the Ethernet cable to our router and to our Raspberry Pi.</li>
                   <li>Grab the microSD card and insert it into your Raspberry Pi and power it up.</li>
@@ -215,14 +241,16 @@
                   <li>Reserve an IP Address for you Rasbperry Pi in the DHCP settings of your router.  This is a better setting than setting a static IP in your Rasbperry Pi settings.</li>
                   <li>Powercycle the Raspberry Pi to make sure the settings take effect.</li>
                 </ol><br>
-                <p>We are going to come back to the router after we have set up Pi-Hole and WireGuard to do two things: set the port forwarding 
-                  rules and modify the DHCP settings of the router to use the IP Address of the Rasperry Pi as the primary DNS server.</p><br><br>
+                <p>We are going to come back to the router after we have set up Pi-Hole and WireGuard to do two things: Modify 
+                  the DHCP settings of the router to use the IP Address of the Rasperry Pi as the primary DNS server and set 
+                  the portforwarding rules for our DNS and VPN services.</p><br><br>
               </div>
               <div class="steps">
                 <h2>Connecting to and Upgrading the Raspberry Pi:</h2><br>
                 <p>There are a couple of ways that we can interface with your Raspberry Pi. You have the option to connect a 
                   keyboard and a monitor to it or we can do it via SSH.  I will connect via SSH since that is my prefered method 
-                  to but you can do one or the other, or both.  Here are the steps we need to take:</p><br>
+                  to but you can do one or the other, or both.</p><br>
+                <p>These are the next steps:</p><br>
                 <ol>
                   <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and type: <b>ssh yourUsername@yourRaspberry_IP</b> or <b>ssh yourUsername@raspberrypi.local</b> if you left the default hostname.</li>
                   <li>Since this is the first time connecting to your Raspberry Pi, you will be asked to accept the connection. Type: Yes.</li>
@@ -240,18 +268,18 @@
               </div>
               <div class="steps" style="background-color: #ffffff;">
                 <h2>Setting up Pi-Hole Ad-Blocker:</h2><br>
-                <p>There are a few methods to install Pi-Hole.  We are going to use the One-Step Automades Install recommended by 
-                  the good folks at Pi-Hole.net. If you are interested in learning about the other alternatives click 
-                  <a href="https://github.com/pi-hole/pi-hole/#one-step-automated-install" target="_blank">HERE</a>. These 
-                  are the steps we are going to follow:</p><br>
+                <p>There are a few methods to install Pi-Hole.  We are going to use the One-Step Automaded Install recommended by 
+                  the good folks at <a href="https://pi-hole.net/" target="_blank">Pi-Hole.net</a>. If you are interested in learning about 
+                  the other alternatives click <a href="https://github.com/pi-hole/pi-hole/#one-step-automated-install" target="_blank">HERE</a>.</p><br>
+                <p>These are the next steps:</p><br>
                 <ol>
                   <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and SSH into your Raspberry Pi.</li>
                   <li>Download Pi-Hole by typing: <b>curl -sSL https://install.pi-hole.net | bash</b></li>
                   <li>Follow the prompts to install Pi-Hole.</li> 
                   <li>Select the upstream DNS provider.  I selected Cloudflare.</li>
                   <li>Select Yes on the Blocklists selection screen. This will load a block list add for you.  You can add more later if you wish.</li>
-                  <li>Selecte Yes to install the Admin Web Interface.</li>
-                  <li>Selecte Yes to install the Web Server.</li>
+                  <li>Select Yes to install the Admin Web Interface.</li>
+                  <li>Select Yes to install the Web Server.</li>
                   <li>Enable Logging is up to you. I selected yes to have data to analyze later on. If you select to enable logging, you will be prompted to selet a privacy setting in the next screen.</li>
                   <li>Once the installation is complete, you will be given a password to log into the Pi-Hole Admin Console.  Save this password.</li>
                   <li>Open your browser and type: <b>http://yourRaspberryPi_IP/admin</b> or <b>http://raspberrypi.local/admin</b> if you left the default hostname.</li>
@@ -302,25 +330,94 @@
               <div class="steps">
                 <h2>Setting up WireGuard VPN:</h2><br>
                 <p>There are a few options when it comes to VPN software. For the Raspberry Pi, two good options are OpenVPN and 
-                  WireGuard and during this installation you will have the option to pick one or the other. I will be installing 
-                  WireGuard and here is why: WireGuard is generally preferred over OpenVPN for its speed, simplicity, and modern 
-                  security features. It has a smaller codebase, making it easier to audit and maintain, and uses efficient 
-                  cryptographic algorithms for better performance. While OpenVPN is more mature and widely compatible, 
-                  WireGuard's streamlined setup and enhanced performance make it a strong choice for many users.</p><br>
+                  WireGuard. We are going to use the download the Automated Installer from the good folks at <a href="https://www.pivpn.io/" target="_blank">PiVPN.io</a>. 
+                  During this installation you will have the option to pick one or the other.</p><br>
+                <p>I will be installing WireGuard, here is why: WireGuard is generally preferred over OpenVPN for its speed, 
+                  simplicity, and modern security features. It has a smaller codebase, making it easier to audit and maintain, 
+                  and uses efficient cryptographic algorithms for better performance. While OpenVPN is more mature and widely 
+                  compatible, WireGuard's streamlined setup and enhanced performance make it a strong choice for many users.</p><br>
+                <p>These are the installation steps:</p><br>
                 <ol>
-                  <li>1</li>
-                  <li>1</li>
-                  <li>1</li>
-                  <li>1</li>
-                  <li>1</li>
-                  <li>1</li>
-                </ol>
-                <div class="upgradeInstructions">
+                  <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and SSH into your Raspberry Pi.</li>
+                  <li>Download PiVPN by typing: <b>curl -L https://install.pivpn.io | bash</b></li>
+                  <li>Follow the prompts to install PiVPN - WireGuard.</li> 
+                  <li>Select Yes to force IPv6 routing.</li>
+                  <li>Select Yes on the DHCP Reservation screen.</li>
+                  <li>Select the user you want to hold the VPN configuration, for me is rapsi.</li>
+                  <li>On the Installation Mode screen we are going to select WireGuard and OK.</li>
+                  <li>Leave the default WireGuard port set to 51820 and select OK and YES on the next screen.</li>
+                  <li>Select Yes to use Pi-Hole as the DNS Server.</li>
+                  <li>The Public IP or DNS is very important. If you have a <b>public static IP adress</b> you can use it or use a DDNS entry that updates intself when and if your dynamic public IP address changes. </li>
+                  <li>Select Ok to generate your server keys.</li>
+                  <li>I recommend to select Yes on the Unattended Upgrades screen.</li>
+                  <li>Hit Ok to complete the isntallation, Yes to reboot, and OK.</li>
+                </ol><br>
+                <p>Below are some images of this part of the process, we still need to set port-forwarding rules in the router, 
+                  add clients the clients to Wireguard and set the clients on our devices.  The next steps will be after the images.</p>
+                </p>
+                <div class="vpnInstructions">
                   <div class="instructions">
-                    <img src="./images/setup/upgrade001.png" alt="Loggin into the Raspberry Pi using SSH">
+                    <img src="./images/setup/vpn001.png" alt="PiVPN Automated Installer - Main Screen">
                   </div>
                   <div class="instructions">
-                    <img src="./images/setup/upgrade002.png" alt="Upgrading the Raspberry Pi software">
+                    <img src="./images/setup/vpn002.png" alt="PiVPN Automated Installer - IPv6 Configuration Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn003.png" alt="PiVPN Automated Installer - DHCP Reservation Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn004.png" alt="PiVPN Automated Installer - Local Users Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn005.png" alt="PiVPN Automated Installer - Choose a User Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn006.png" alt="PiVPN Automated Installer - Installation Mode Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn007.png" alt="PiVPN Automated Installer - Defualt WireGuard Port Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn008.png" alt="PiVPN Automated Installer - About Pi-Hole creen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn009.png" alt="PiVPN Automated Installer - Public IP or DNS Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn010.png" alt="PiVPN Automated Installer - Unnatended Upgrade Information Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn011.png" alt="PiVPN Automated Installer - Unnatended Upgrade Selection Screen">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn012.png" alt="PiVPN Automated Installer - Installation Complete screen">
+                  </div>
+                </div>  
+                <br><p>Follow these steps to finalize our setup:</p><br>
+                <ol>
+                  <li>Lets get our clients ready by going to your app store and searching for WireGuard, or you can click <a href="https://www.wireguard.com/install/" target="_blank">HERE</a> to download the client software for your device and OS.</li>
+                  <li>Log into your routers admin webpage. Find your port forwarding seetings.  Use the IP Address you set for your pi to add a rule for Pi-Hole set to port 53, and one for WireGuard for port 51820 with UDP protocol. Make sure you save this settings.</li>
+                  <li>Open your command prompt (Windows) or your terminal (MacOS/Linux) and SSH into your Raspberry Pi.</li>
+                  <li>Type in <b>pivpn</b> and hit enter, you should see a list of options. We are going to use <b>-a</b> to add a client.</li>
+                  <li>Type in <b>pivpn -a</b> and hit enter.  Enter the name for your client and hit enter.  Create client name for every device you are going to connect. We can see were the file is created, it should be in <b>/home/USERNAME/configs</b> and we are going to use this information in the next steps.</li>
+                  <li>We are going to generate QR codes for our mobile clients first.  Type in Type in <b>pivpn -qr</b> and hit enter.  Type in the name of the client you want to generate the QR for and hit enter.</li>
+                  <li>On your mobile device, look for the WireGuard app, hit Add or +, and Create from QR Code and follow the promts.</li>
+                  <li>For other devices, like adesktop or laptop, we need to copy the files from the Raspberry PI.  We can use SCP (Secure File Copy) from the command promt or terminal: <b>scp yourUsername@yourRaspberry_IP:/home/yourUsername/configs/FILENAME.conf where_ you_want_the_file_in_your_computer</b>. An example for windows could be <b>scp rapsi@raspberrypi.local:/home/rapsi/configs/Client1.conf C:\</b> to copy the file to your C:\ drive.</li>
+                  <li>On your computer, start the WireGuard app and click on import from file and find the file we copied from our Raspberry Pi.</li>
+                  <li>You can activate and deactivate your VPN connection now and you are all set!</li>
+                 </ol>
+                <div class="vpnInstructions">
+                  <div class="instructions">
+                    <img src="./images/setup/vpn013.png" alt="">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn014.png" alt="">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn015.png" alt="">
+                  </div>
+                  <div class="instructions">
+                    <img src="./images/setup/vpn016.png" alt="">
                   </div>
                 </div>
               </div>  
