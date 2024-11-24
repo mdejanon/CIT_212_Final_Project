@@ -26,7 +26,7 @@
 }
 
 .container {
-    width: 100%;
+    width: 100vw;
     height: auto;
     display: flex;
     flex-wrap: nowrap;
@@ -64,10 +64,17 @@ nav {
     border-bottom: 1px solid #dedede;
 }
 
+.navBar {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: auto;
+    left: 49%;
+}
+
 .navButton {
     display: inline-block;
     position: relative;
-    left: 49%;
     width: 80px;
     height: 40px;
     background-color: #f7f8fa;
@@ -102,7 +109,7 @@ nav ul li {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     min-height: 90vh;
     max-height: auto;
 }
@@ -200,15 +207,15 @@ nav ul li .button:hover {
 
     header h1 {
         margin-top: 25px;
-        margin-left: 10%;
+        margin-left: 6%;
     }
     
     header h2 {
-        margin-left: 10%;
+        margin-left: 6%;
     }
 
-    .navButton {
-        left: 36%;
+    .navBar {
+        left: 42%;
     }
 
     .content {
@@ -217,12 +224,12 @@ nav ul li .button:hover {
     }
 
     article ul  {
-        margin-left: 8%;
+        margin-left: 9%;
         margin-right: 3%;
     }
     
     article ol  {
-        margin-left: 8%;
+        margin-left: 9%;
         margin-right: 3%;
     }
 
