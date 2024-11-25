@@ -90,7 +90,13 @@
             text-align: center;
         }
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 900px) {
+            .specsContainer {
+                height: 480px;
+            }
+        }
+
+        @media screen and (max-width: 833px) {
             .specsContainer {
                 flex-direction: column;
                 height: 830px
@@ -157,9 +163,9 @@
                         <ul>
                             <li><b>Processor: </b>2.4GHz quad-core 64-bit Arm Cortex-A76 CPU.</li>
                             <li><b>GPU: </b>VideoCore VII, supporting OpenGL ES 3.1 and Vulkan 1.2.</li>
-                            <li><b>RAM: </b>Dual 4Kp60 HDMI display output with HDR support.</li>
+                            <li><b>RAM: </b>LPDDR4X-4267 SDRAM (options for 2GB, 4GB and 8GB).</li>
                             <li><b>Display: </b>Dual 4Kp60 HDMI display output with HDR support.</li>
-                            <li><b>Connectivity: </b>Dual-band 802.11ac Wi-Fi, Bluetooth 5.0/BLE, Gigabit Ethernet with PoE+ support.</li>
+                            <li><b>Connectivity: </b>Dual-band 802.11ac Wi-Fi, Bluetooth 5.0/BLE, Gigabit Ethernet with PoE+ support (requires separate PoE+ HAT).</li>
                             <li><b>Ports: </b>2 × USB 3.0, 2 × USB 2.0, PCIe 2.0 x1 interface.</li>
                             <li><b>Storage: </b>microSD card slot with support for high-speed SDR104 mode.</li>
                             <li><b>Power: </b>5V/5A DC via USB-C, with Power Delivery support.</li>
@@ -179,7 +185,7 @@
                     With Pi-Hole Ad Blocker and WireGuard VPN we can start taking back control of some of these systems.</p><br><br><br>
                 <div class="conectionsContainer">
                     <h2>Projects Computer Architecture Connections:</h2><br>
-                    <p>The Raspberry Pi is the center piece of my project.  Using Pi-Hole Ad Blocker and WineGuard VPN it serves the purpose 
+                    <p>The Raspberry Pi is the center piece of my project.  Using Pi-Hole Ad Blocker and WireGuard VPN it serves the purpose 
                         to increase to enhance my network security and privacy.  These are some key components and their contributions 
                         to this project:</p><br><br>
                     <div class="conections-flex-container">
@@ -201,7 +207,7 @@
                                 my bandwidth and privacy in most cases.</p>
                         </div>
                         <div class="conection">
-                            <h3 style="margin-top: 50px;">WineGuard VPN Protocol</h3><br>
+                            <h3 style="margin-top: 50px;">WireGuard VPN Protocol</h3><br>
                             <p>Wireguard provides a secure VPN tunnel, encrypting all traffic between my devices and the Pi-Hole server. 
                                 This ensures that my DNS queries and other internet traffic are protected from eavesdropping and tampering, 
                                 even on public networks.</p>
